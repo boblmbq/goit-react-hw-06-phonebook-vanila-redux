@@ -1,14 +1,11 @@
 // import css from './Filter.module.css';
 
-const Filter = props => {
-  const { onFilterChange } = props;
+import { useDispatch } from 'react-redux';
+import { addFilter } from 'redux/actions';
+
+export const Filter = () => {
+  const dispatch = useDispatch();
   return (
-    <input
-      onChange={e => onFilterChange(e)}
-      type="text"
-      value={props.filterInput}
-    />
+    <input onChange={e => dispatch(addFilter(e.target.value))} type="text" />
   );
 };
-
-export default Filter;
